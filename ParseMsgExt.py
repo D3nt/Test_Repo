@@ -86,7 +86,7 @@ for currMsgIndex in msgIndexArray:
             # Log the bad entry
             print "Bad Line ", currentParsingLine
             badLines += 1
-
+     #change in a different place to test out merge
     if sampleCount == 0:
        print "No Samples for Msg ", currMsgIndex
     else:
