@@ -1,5 +1,5 @@
 #Work in progress    
-
+#Just going to modify some stuff to check out Version Control
 # Input/Output Files
 currInputfile = open('teraterm_Poundit_new.log', 'r')
 outputfile = open('results1.csv', 'w')
@@ -11,7 +11,7 @@ freedKey = 'Freed:'
 
 msgIndexArray = range(0,256)
 
-msgExtStartTime = 0
+msgExtStartTimestamp = 0
 msgExtEndTime = 0
 allocatedFound = 0
 freedFound = 0
@@ -47,7 +47,7 @@ for currMsgIndex in msgIndexArray:
                #print "Found index ", currMsgIndex + " line ", line
                # Look for allocation first
                if currentParsingLine[5] == allocatedKey:
-                  msgExtStartTime = int(currentTimeStamp,0)
+                  msgExtStartTimestamp = int(currentTimeStamp,0)
                   if allocatedFound == 1:
                      print "Double Allocation for ", currMsgIndex
                      doubleAllocationCount += 1
@@ -63,10 +63,10 @@ for currMsgIndex in msgIndexArray:
                   freedFound = 0
                   allocatedFound = 0
                   
-                  #print "Start time = ", msgExtStartTime
+                  #print "Start time = ", msgExtStartTimestamp
                   #print "End time = ", msgExtEndTime
                   # Calculate the delta time between allocation and de-allocation
-                  deltaTime = msgExtEndTime - msgExtStartTime
+                  deltaTime = msgExtEndTime - msgExtStartTimestamp
                   if deltaTime <= 0:
                      print "Time Swapped, delta is ", deltaTime
                      swappedDeltas += 1
